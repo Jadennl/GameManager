@@ -5,7 +5,7 @@ public class PlayerManager {
     private static List<PlayerClass> classes = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println("Game Manager! \n Use integer values to navigate the menu.");
+        System.out.println("Game Manager! \n Use integer values to navigate the menus.");
         ask();
 
     }
@@ -87,6 +87,7 @@ public class PlayerManager {
                 }
                 else{
                     System.out.println("No Custom Classes are present. Would you like to create one?");
+                    ask();
                 }
             } else if (option == 3) {
                 PlayerClass c = advPlayer();
