@@ -42,7 +42,10 @@ public class Player {
 	}
 	
 	public String toString() {
-		return name + " [" + pClass +  "]: " + health + "/" + maxHealth + " HP";
+		if( health > 0) {
+			return name + " [" + pClass + "]: " + health + "/" + maxHealth + " HP";
+		}
+		else return name + " [" + pClass + "]: **DEAD**";
 	}
 	
 }
