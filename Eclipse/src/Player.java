@@ -6,6 +6,7 @@ public class Player {
 	private int  armor, mana, speed;
 	private double health;
 	private double maxHealth;
+	Backpack items = new Backpack(10);
 
 	public Player(String name) {
 		pClass = new Adventurer();

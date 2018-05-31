@@ -34,8 +34,9 @@ public class PlayerManager {
             ask();
         }
         System.out.println("\n\t\tPLAYER MENU");
-        System.out.println("There are: " + players.size() + " players");
-        System.out.println("(1) Player List \n(2) Manage Player \n(3) Delete Player \n(4) Return to main menu.");
+        if(players.size() > 1)System.out.println("There are " + players.size() + " players.");
+        else System.out.println("There is 1 player.");
+        System.out.println("(1) Player List \n(2) Manage Player \n(3) Delete Player \n(4) Return to main menu");
         try {
             int option = mscan.nextInt();
             if (option == 1) {
@@ -86,13 +87,40 @@ public class PlayerManager {
                 System.out.println("\t" + "(" + x + ") " + p);
                 x++;
             }
+            System.out.println("\t(" + x + ") Go back" );
             int choice = mscan2.nextInt() - 1;
-            System.out.println("\t\t--" + players.get(choice).getName() + " MENU--");
+            if (choice == x - 1){
+                manage();
+            }
+            else {
+                managePlayer(players.get(choice));
+            }
         } catch (InputMismatchException e) {
-            System.out.println("Please select a number on the screen");
+            System.out.println("Please select a number on the screen.");
             manage2();
         }
 
+    }
+
+    public static void managePlayer(Player p){
+        try {
+            Scanner mscan3 = new Scanner(System.in);
+            System.out.println("\t\t--" + p.getName() + "'s MENU--");
+            System.out.println("(1) Use item\n(2) Take Damage\n(3) Go back");
+            int choice = mscan3.nextInt();
+            if (choice == 1) {
+
+            } else if (choice == 2) {
+
+            }else if(choice == 3){
+                manage2();
+        }else {
+                managePlayer(p);
+            }
+        }catch(InputMismatchException e){
+            System.out.print("Please select a number on the screen.");
+            managePlayer(p);
+        }
     }
 
     public static void printNames() {
@@ -105,7 +133,7 @@ public class PlayerManager {
         Scanner pscan = new Scanner(System.in);
         System.out.println("\n\t\tCREATE PLAYER");
         System.out.println(
-                "(1) New Default Player\n(2) New Class \n(3) New Player \n(4) New Player and Custom Class \n(5) Return to main menu");
+                "(1) New Default Player\n(2) New Class \n(3) New Player \n(4) New Player and Class \n(5) Return to main menu");
         try {
             int option = pscan.nextInt();
             if (option == 1) {
@@ -115,8 +143,10 @@ public class PlayerManager {
                 System.out.println(p.getName() + " was created.");
                 players.add(p);
                 ask();
-            } else if (option == 2) advPlayer();
-            else if (option == 3) {
+            } else if (option == 2) {
+                classes.add(createClass());
+                ask();
+            }else if (option == 3) {
                 System.out.println("What is the player's name?");
                 String pName = pscan.next();
                 if (classes.isEmpty() == false) {
@@ -134,7 +164,7 @@ public class PlayerManager {
                 } else {
                     System.out.println("No custom classes exist. Would you like to create one?\n(1) Yes \nEnter any other number for no.");
                     if (pscan.nextInt() == 1) {
-                        PlayerClass c = advPlayer();
+                        PlayerClass c = createClass();
                         Player p = new Player(pName, c);
                         System.out.println(p.getName() + " was created.");
                         players.add(p);
@@ -144,7 +174,7 @@ public class PlayerManager {
 
                 }
             } else if (option == 4) {
-                PlayerClass c = advPlayer();
+                PlayerClass c = createClass();
                 classes.add(c);
                 System.out.println(c + " class was created.");
                 System.out.println("What is the player's name?");
@@ -164,7 +194,7 @@ public class PlayerManager {
 
     }
 
-    public static PlayerClass advPlayer() {
+    public static PlayerClass createClass() {
         try {
             Scanner pscan = new Scanner(System.in);
             System.out.println("This will create a custom class, please enter all values CAREFULLY. There is no undo.");
@@ -181,7 +211,7 @@ public class PlayerManager {
             return new Custom(cName, armor, mana, speed, maxHealth);
         } catch (InputMismatchException e) {
             System.out.println("Invalid value used.");
-            return advPlayer();
+            return createClass();
         }
     }
 }
