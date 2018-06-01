@@ -180,8 +180,6 @@ public class PlayerManager {
                 }
             } else if (option == 4) {
                 PlayerClass c = createClass();
-                classes.add(c);
-                System.out.println(c + " class was created.");
                 System.out.println("What is the player's name?");
                 String name = pscan.next();
                 Player p = new Player(name, c);
@@ -213,7 +211,10 @@ public class PlayerManager {
             int speed = pscan.nextInt();
             System.out.println("What is the base Health?");
             double maxHealth = pscan.nextDouble();
-            return new Custom(cName, armor, mana, speed, maxHealth);
+            PlayerClass c =  new Custom(cName, armor, mana, speed, maxHealth);
+            classes.add(c);
+            System.out.println(c + " class was created.");
+            return c;
         } catch (InputMismatchException e) {
             System.out.println("Invalid value used.");
             return createClass();
