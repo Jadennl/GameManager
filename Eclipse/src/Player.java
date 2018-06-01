@@ -27,6 +27,10 @@ public class Player {
 		health = maxHealth;
 		this.setName(name);
 	}
+
+	public Backpack getInv(){
+		return items;
+	}
 	
 	public void hurt(double amount) {
 		double dmgMult = (-44.14599735755 + 20.609302638349 * Math.log(armor))/100;
