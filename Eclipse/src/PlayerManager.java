@@ -106,23 +106,18 @@ public class PlayerManager {
         try {
             Scanner mscan3 = new Scanner(System.in);
             System.out.println("\t\t--" + p.getName() + "'s MENU--");
-            System.out.println("(1) Use item\n(2) Take Damage\n(3) Go back");
+            System.out.println("(1) Take Damage\n(2) Go back");
             int choice = mscan3.nextInt();
             if (choice == 1) {
-                System.out.println(p.getName() + "'s Inventory will now print.");
-                p.getInv().use();
-                System.out.println("\t(" + p.getInv().size() + ") Go back");
-                choice = mscan3.nextInt();
-                if(choice > 0 && choice < p.getInv().size())p.getInv().use(choice);
-                else managePlayer(p);
-            } else if (choice == 2) {
+                 managePlayer(p);
+            } if (choice == 1) {
                 Scanner hurtscan = new Scanner(System.in);
                 System.out.println("How much damage did " + p.getName() + " take?");
                 double d = hurtscan.nextDouble();
                 p.hurt(d);
                 managePlayer(p);
 
-            }else if(choice == 3){
+            }else if(choice == 2){
                 manage2();
         }else {
                 managePlayer(p);
