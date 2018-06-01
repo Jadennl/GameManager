@@ -8,6 +8,7 @@ public class Player {
 	private double maxHealth;
 
 
+
 	public Player(String name) {
 		pClass = new Adventurer();
 		armor = pClass.getStats()[0];
@@ -16,6 +17,7 @@ public class Player {
 		maxHealth = pClass.getMax();
 		health = maxHealth;
 		this.setName(name);
+
 	}
 	
 	public Player(String name, PlayerClass pClass) {
@@ -26,16 +28,20 @@ public class Player {
 		maxHealth = pClass.getMax();
 		health = maxHealth;
 		this.setName(name);
+
 	}
 
 
 	
 	public void hurt(double amount) {
-		double dmgMult = (-44.14599735755 + 20.609302638349 * Math.log(armor))/100;
-		double damage = amount * dmgMult;
-		damage = (double)Math.round(damage * 100d) / 100d;
-		health -= damage;
-		System.out.println(name + " took " + damage + " damage" );
+		if((int)Math.random()*armor > speed) {
+			double dmgMult = (-44.14599735755 + 20.609302638349 * Math.log(armor)) / 100;
+			double damage = amount * dmgMult;
+			damage = (double) Math.round(damage * 100d) / 100d;
+			health -= damage;
+			System.out.println(name + " took " + damage + " damage");
+		}
+		else System.out.println(name + " dodged the attack!");
 	}
 
 	public String getName() {
