@@ -6,7 +6,7 @@ public class Player {
 	private int  armor, mana, speed;
 	private double health;
 	private double maxHealth;
-	Backpack items = new Backpack(10);
+
 
 	public Player(String name) {
 		pClass = new Adventurer();
@@ -28,9 +28,7 @@ public class Player {
 		this.setName(name);
 	}
 
-	public Backpack getInv(){
-		return items;
-	}
+
 	
 	public void hurt(double amount) {
 		double dmgMult = (-44.14599735755 + 20.609302638349 * Math.log(armor))/100;
