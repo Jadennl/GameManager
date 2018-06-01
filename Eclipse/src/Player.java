@@ -28,10 +28,12 @@ public class Player {
 		this.setName(name);
 	}
 	
-	public void hurt(int amount) {
-		double dmgMult = 100 / (100 + armor);
-		health -= (amount * dmgMult);
-		System.out.println(name + " took " + amount * dmgMult + "damage" );
+	public void hurt(double amount) {
+		double dmgMult = (-44.14599735755 + 20.609302638349 * Math.log(armor))/100;
+		double damage = amount * dmgMult;
+		damage = (double)Math.round(damage * 100d) / 100d;
+		health -= damage;
+		System.out.println(name + " took " + damage + " damage" );
 	}
 
 	public String getName() {

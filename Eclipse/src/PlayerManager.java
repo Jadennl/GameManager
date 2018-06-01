@@ -111,6 +111,11 @@ public class PlayerManager {
             if (choice == 1) {
 
             } else if (choice == 2) {
+                Scanner hurtscan = new Scanner(System.in);
+                System.out.println("How much damage did " + p.getName() + " take?");
+                double d = hurtscan.nextDouble();
+                p.hurt(d);
+                managePlayer(p);
 
             }else if(choice == 3){
                 manage2();
