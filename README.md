@@ -1,21 +1,21 @@
 # GameManager
 **Final project for AP Computer Science**
 
-##Purpose
+## Purpose
 To inventory and manage characters.
 
-##Topics implemented:
--[]Looping Through Strings
--[x]Lists Interface
--[]2D Arrays + Nested Loops
--[]Interfaces + Abstract Methods
--[]Polymorphism
--[]Searching + Sorting
--[x]Recursion
+## Topics implemented:
+-[] Looping Through Strings
+-[x] Lists Interface
+-[] 2D Arrays + Nested Loops
+-[] Interfaces + Abstract Methods
+-[] Polymorphism
+-[] Searching + Sorting
+-[x] Recursion
 
-###Lists Interface
+### Lists Interface
 Lists are used to store custom classes & current players.
-####example
+#### example
 ```java
 private static List<Player> players = new ArrayList<>();
 private static List<PlayerClass> classes = new ArrayList<>();
@@ -37,9 +37,9 @@ System.out.println("The current custom classes will now print. Please choose one
 ```
 
 
-###Recursion
+### Recursion
 Recursive methods are used throughout the entire code to repeat menus. The base case is the method doing its purpose.
-####example
+#### example
 ```java
 public static void ask() {
         Scanner sc = new Scanner(System.in);
