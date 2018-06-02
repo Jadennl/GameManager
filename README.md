@@ -16,7 +16,7 @@
 ### Lists Interface
 Lists are used to store custom classes & current players.
 #### Example
-``Java
+```Java
 private static List<Player> players = new ArrayList<>();
 private static List<PlayerClass> classes = new ArrayList<>();
 
