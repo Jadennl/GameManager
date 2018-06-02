@@ -36,7 +36,7 @@ System.out.println("The current custom classes will now print. Please choose one
                     int choice = pscan.nextInt();
 ```
 ### 2D Array
-A 2d Array is used to import and export data.
+A 2d Array is used to import export data.
 ### Example
 ```Java
 private static String[][] condense() {
